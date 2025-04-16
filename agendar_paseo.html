@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agendar Paseo - PetPass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 25px;
+    }
+
+    h2 {
+      font-size: 22px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0 6px;
+      font-weight: 600;
+      color: #444;
+    }
+
+    input[type="date"] {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .horarios {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .hora {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .disponible {
+      background-color: #00a86b;
+      color: white;
+    }
+
+    .disponible:hover {
+      background-color: #008f5f;
+    }
+
+    .ocupado {
+      background-color: #ccc;
+      color: #666;
+      cursor: not-allowed;
+    }
+
+    .hora.seleccionado {
+      outline: 3px solid #005fa3;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      font-size: 16px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .link {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 15px;
+      color: #0077cc;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Agendar paseo con Carlos</h2>
+    <label for="fecha">Selecciona una fecha</label>
+    <input type="date" id="fecha" onchange="mostrarHorarios()" required />
+
+    <div class="horarios" id="horarios"></div>
+
+    <button class="btn" onclick="confirmarPaseo()">Confirmar paseo</button>
+    <div class="link" onclick="window.history.back()">← Volver al perfil</div>
+  </div>
+
+  <script>
+    const horariosDisponibles = {
+      "2025-04-17": ["10:00", "11:00", "15:00"], // estos están disponibles ese día
+      "2025-04-18": ["11:00", "14:00", "16:00"],
+    };
+
+    const todosHorarios = ["10:00", "11:00", "12:00", "14:00", "15:00", "16:00"];
+
+    let horaSeleccionada = "";
+
+    function mostrarHorarios() {
+      const fecha = document.getElementById('fecha').value;
+      const horariosContainer = document.getElementById('horarios');
+      horariosContainer.innerHTML = "";
+
+      if (!fecha) return;
+
+      todosHorarios.forEach(hora => {
+        const btn = document.createElement('button');
+        btn.textContent = hora;
+        btn.classList.add('hora');
+
+        if (horariosDisponibles[fecha]?.includes(hora)) {
+          btn.classList.add('disponible');
+          btn.onclick = () => {
+            document.querySelectorAll('.hora').forEach(b => b.classList.remove('seleccionado'));
+            btn.classList.add('seleccionado');
+            horaSeleccionada = hora;
+          };
+        } else {
+          btn.classList.add('ocupado');
+          btn.disabled = true;
+        }
+
+        horariosContainer.appendChild(btn);
+      });
+    }
+
+    function confirmarPaseo() {
+      const fecha = document.getElementById('fecha').value;
+      if (!fecha || !horaSeleccionada) {
+        alert("Selecciona una fecha y un horario disponible.");
+        return;
+      }
+      alert(`✅ Paseo reservado para el ${fecha} a las ${horaSeleccionada}.`);
+    }
+  </script>
+<script src="navbar.js"></script>
+<script>
+  generarNavbar('panel'); // cambia "panel" por "historial" o "transmision" según la página
+</script>
+
+</body>
+</html>
+

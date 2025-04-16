@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmar Paseo - PetPass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+      max-width: 480px;
+      margin: 0 auto;
+      padding: 25px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .resumen {
+      font-size: 15px;
+      margin-bottom: 20px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .label {
+      font-weight: 600;
+      color: #0077cc;
+    }
+
+    .precio {
+      font-size: 20px;
+      font-weight: bold;
+      color: #00a86b;
+      margin-top: 10px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      margin-top: 25px;
+      font-size: 16px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+    }
+
+    .link {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 15px;
+      color: #0077cc;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Resumen del Paseo</h2>
+    <div class="resumen">
+      <p><span class="label">Paseador:</span> Carlos Muñoz</p>
+      <p><span class="label">Dirección:</span> Avenida El Bosque Norte 123, Las Condes</p>
+      <p><span class="label">Fecha:</span> 18 de abril de 2025</p>
+      <p><span class="label">Hora:</span> 14:00 - 15:00</p>
+      <p class="precio">$8.000 CLP</p>
+    </div>
+
+    <button class="btn" onclick="pagar()">Pagar ahora</button>
+    <div class="link" onclick="window.history.back()">← Volver al paso anterior</div>
+  </div>
+
+  <script>
+    function pagar() {
+      // Aquí luego podrías conectar a WebPay, MercadoPago, etc.
+      alert("Redirigiendo al pago...");
+      // window.location.href = "pago.html" o integración externa
+    }
+  </script>
+<script src="navbar.js"></script>
+<script>
+  generarNavbar('panel'); // cambia "panel" por "historial" o "transmision" según la página
+</script>
+
+</body>
+</html>

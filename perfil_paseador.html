@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Paseador - PetPass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .avatar {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      background-size: cover;
+      background-position: center;
+      background-color: #ccc;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+
+    .comuna {
+      text-align: center;
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      font-size: 16px;
+      margin-bottom: 8px;
+      color: #0077cc;
+    }
+
+    .section p {
+      font-size: 14px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      font-size: 16px;
+      background-color: #00a86b;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #008f5f;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #0077cc;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="avatar" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg');"></div>
+    <h2>Carlos Muñoz</h2>
+    <div class="comuna">Las Condes, Santiago</div>
+
+    <div class="section">
+      <h3>Experiencia</h3>
+      <p>Más de 3 años paseando perros de diferentes tamaños y razas. Especialista en perros grandes y con entrenamiento básico.</p>
+    </div>
+
+    <div class="section">
+      <h3>Disponibilidad</h3>
+      <p>Lunes a Viernes, de 10:00 a 17:00.</p>
+    </div>
+
+    <div class="section">
+      <h3>Certificado</h3>
+      <p><a href="#" style="color: #0077cc;">Ver certificado en PDF</a></p>
+    </div>
+
+    <button class="btn" onclick="alert('Paseo confirmado con Carlos')">Confirmar Paseo</button>
+    <div class="link" onclick="window.history.back()">← Volver a la búsqueda</div>
+  </div>
+  <script src="navbar.js"></script>
+  <script>
+    generarNavbar('panel'); // cambia "panel" por "historial" o "transmision" según la página
+  </script>
+  
+
+</body>
+</html>

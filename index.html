@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PetPass - Bienvenida</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: linear-gradient(180deg, #a2d4f3 0%, #ffffff 100%);
+      display: flex; justify-content: center; align-items: center;
+      height: 100vh; padding: 20px;
+    }
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px 20px;
+      max-width: 400px;
+      width: 100%; text-align: center;
+    }
+    .logo {
+      width: 80px; height: 80px;
+      margin: 0 auto 20px;
+      background-color: #eee;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 30px; color: #0077cc;
+    }
+    h1 { font-size: 24px; margin-bottom: 30px; color: #333; }
+    .btn {
+      width: 100%; padding: 15px; margin: 10px 0;
+      font-size: 16px; background-color: #0077cc; color: white;
+      border: none; border-radius: 10px; cursor: pointer;
+    }
+    .btn:hover { background-color: #005fa3; }
+    .link {
+      font-size: 14px; margin-top: 15px;
+      color: #0077cc; cursor: pointer; text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="logo">🐾</div>
+    <h1>Bienvenido a PetPass</h1>
+    <button class="btn" onclick="window.location.href='registro_dueno.html'">Soy dueño de mascota</button>
+    <button class="btn" onclick="window.location.href='registro_paseador.html'">Soy paseador de mascotas</button>
+    <div class="link" onclick="window.location.href='login.html'">¿Eres nuevo? Regístrate o inicia sesión</div>
+  </div>
+</body>
+</html>
+
+

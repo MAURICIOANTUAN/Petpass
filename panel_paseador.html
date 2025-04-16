@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Paseador - PetPass</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background-color: #f0f4f8;
+      padding: 20px;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 25px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 22px;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    .paseo {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-left: 5px solid #0077cc;
+    }
+
+    .label {
+      font-weight: bold;
+      color: #0077cc;
+    }
+
+    .info {
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #444;
+    }
+
+    .btn {
+      padding: 12px;
+      width: 100%;
+      font-size: 15px;
+      background-color: #00a86b;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .btn.finalizar {
+      background-color: #cc0000;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      opacity: 0.95;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>Mis Paseos</h2>
+
+    <div class="paseo" id="paseoPendiente">
+      <div class="info"><span class="label">Cliente:</span> Fernanda Rojas</div>
+      <div class="info"><span class="label">Mascota:</span> Luna (Golden Retriever)</div>
+      <div class="info"><span class="label">Dirección:</span> Av. Italia 456</div>
+      <div class="info"><span class="label">Hora:</span> 14:00 - 15:00</div>
+      <button class="btn" onclick="iniciarPaseo()">Iniciar paseo</button>
+    </div>
+
+    <div class="paseo" id="paseoActivo" style="display: none;">
+      <div class="info"><span class="label">Paseo en curso:</span></div>
+      <div class="info">📍 Tracking activo | 🎥 Cámara activada</div>
+      <div class="info"><span class="label">Cliente:</span> Fernanda Rojas</div>
+      <div class="info"><span class="label">Dirección:</span> Av. Italia 456</div>
+      <button class="btn finalizar" onclick="finalizarPaseo()">Finalizar paseo</button>
+    </div>
+  </div>
+
+  <script>
+    function iniciarPaseo() {
+      document.getElementById('paseoPendiente').style.display = 'none';
+      document.getElementById('paseoActivo').style.display = 'block';
+      alert("Transmisión y GPS activados.");
+      // Aquí podrías disparar un webhook, activar Livekit, etc.
+    }
+
+    function finalizarPaseo() {
+      alert("Paseo finalizado con éxito.");
+      document.getElementById('paseoActivo').style.display = 'none';
+      // Luego podrías redirigir al historial u otra acción
+    }
+  </script>
+<script src="navbar.js"></script>
+<script>generarNavbar('panel');</script> <!-- Usa 'historial' o 'transmision' según el archivo -->
+
+</body>
+</html>
